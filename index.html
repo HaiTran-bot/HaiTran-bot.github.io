@@ -3,13 +3,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Trần Tấn Hải — Computer Engineering Portfolio</title>
+<title>Trần Tấn Hải — Computer Engineering</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
-/* CSS VARIABLES & RESET - GIỮ NGUYÊN STYLE CORE CỦA BẠN */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 :root{
@@ -22,7 +21,7 @@ html{scroll-behavior:smooth}
 }
 body{background:var(--bg);color:var(--txt);font-family:var(--mono);font-size:.875rem;line-height:1.75;overflow-x:hidden}
 ::selection{background:var(--acc);color:#000}
-::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--acc)}
+::-webkit-scrollbar{width:2px}::-webkit-scrollbar-thumb{background:var(--acc)}
 a{color:var(--acc);text-decoration:none;transition:color .2s}
 a:hover{color:var(--white)}
 
@@ -38,348 +37,528 @@ a:hover{color:var(--white)}
 .n-cta{font-family:var(--mono);font-size:.63rem;letter-spacing:.08em;color:var(--acc);border:1px solid rgba(106,172,238,.3);padding:.32rem .9rem;transition:all .2s;display:flex;align-items:center;gap:.4rem}
 .n-cta:hover{background:rgba(106,172,238,.08);border-color:var(--acc);color:var(--white)}
 
-/* HERO & SECTIONS */
+/* HERO */
 #hero{min-height:100svh;display:flex;align-items:center;padding-top:54px;position:relative;overflow:hidden}
 #hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(106,172,238,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(106,172,238,.022) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
-.hero-inner{max-width:1200px;margin:0 auto;padding:0 3rem;display:grid;grid-template-columns:1fr 400px;gap:4rem;align-items:center;position:relative;z-index:2;width:100%}
+#hero::after{content:'';position:absolute;top:50%;left:55%;transform:translate(-50%,-50%);width:80vw;height:70vh;background:radial-gradient(ellipse at center,rgba(106,172,238,.04) 0%,transparent 60%);pointer-events:none}
+.hero-inner{max-width:1200px;margin:0 auto;padding:0 3rem;display:grid;grid-template-columns:1fr 360px;gap:5rem;align-items:center;position:relative;z-index:2;width:100%}
 
-.h-eye{font-family:var(--mono);font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--acc);margin-bottom:1.8rem;display:flex;align-items:center;gap:.7rem}
+.h-eye{font-family:var(--mono);font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--acc);margin-bottom:1.8rem;display:flex;align-items:center;gap:.7rem;opacity:0;animation:up .6s .1s both}
 .h-pulse{width:6px;height:6px;border-radius:50%;background:var(--acc);box-shadow:0 0 8px var(--acc);animation:pulse 2.5s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
 
-.h-name{font-family:var(--disp);font-size:clamp(2.5rem,5.5vw,4.5rem);font-weight:800;color:var(--white);line-height:1.1;letter-spacing:-.02em;margin-bottom:1.6rem}
-.h-name .hl{color:transparent;-webkit-text-stroke:1px var(--acc)}
-.h-role{font-family:var(--disp);font-weight:300;font-size:clamp(.9rem,1.5vw,1.1rem);color:var(--txt2);margin-bottom:2.4rem}
+.h-name{font-family:var(--disp);font-size:clamp(2.5rem,5.5vw,5rem);font-weight:800;color:var(--white);line-height:1;letter-spacing:-.02em;margin-bottom:1.6rem;opacity:0;animation:up .7s .2s both;white-space:nowrap}
+.h-name .hl{color:transparent;-webkit-text-stroke:1.5px var(--acc)}
+
+.h-role{font-family:var(--disp);font-weight:300;font-size:clamp(.85rem,1.5vw,1rem);color:var(--txt2);margin-bottom:2.4rem;line-height:1.6;opacity:0;animation:up .7s .3s both}
 .h-role strong{color:var(--head);font-weight:500}
 
-/* TERMINAL MODS */
-.h-term{background:var(--surf);border:1px solid var(--brd);box-shadow: 0 20px 40px rgba(0,0,0,0.4)}
+.h-bio{font-family:var(--disp);font-weight:300;font-size:.9rem;color:var(--txt);line-height:2;max-width:520px;margin-bottom:2.8rem;opacity:0;animation:up .7s .4s both}
+.h-bio em{color:var(--acc);font-style:normal}
+
+.h-btns{display:flex;gap:.9rem;flex-wrap:wrap;opacity:0;animation:up .7s .5s both}
+.btn-fill{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;padding:.5rem 1.2rem;background:var(--acc);color:#060a10;font-weight:500;border:1px solid var(--acc);transition:all .2s}
+.btn-fill:hover{background:var(--acc2);border-color:var(--acc2);color:#000;box-shadow:0 0 22px rgba(106,172,238,.28)}
+.btn-line{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;padding:.5rem 1.2rem;background:transparent;color:var(--txt2);border:1px solid var(--brd2);transition:all .2s}
+.btn-line:hover{color:var(--head);background:var(--surf)}
+
+/* terminal */
+.h-term{background:var(--surf);border:1px solid var(--brd);opacity:0;animation:up .8s .35s both}
 .h-term-bar{display:flex;align-items:center;gap:.5rem;padding:.55rem 1rem;background:#090d14;border-bottom:1px solid var(--brd)}
 .td{width:9px;height:9px;border-radius:50%}.td1{background:#ef4444}.td2{background:#f5a623}.td3{background:#22c55e}
 .h-term-lbl{margin-left:.4rem;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--txt)}
-.h-term-body{padding:1.3rem 1.4rem;min-height:320px;font-size: 0.75rem}
+.h-term-body{padding:1.3rem 1.4rem 1.2rem;min-height:295px}
+.tl{display:flex;gap:.5rem;margin-bottom:.05rem;line-height:1.7}
+.tl .p{color:var(--acc);flex-shrink:0}.tl .c{color:var(--head)}.tl .g{color:#4ade80}.tl .b{color:#7eb8f7}.tl .d{color:var(--txt)}
+.caret{display:inline-block;width:7px;height:13px;background:var(--acc);vertical-align:text-bottom;animation:blink .75s step-end infinite}
+@keyframes blink{50%{opacity:0}}
 
-.sec{padding:8rem 0}
+.h-scroll{position:absolute;bottom:2rem;left:3rem;z-index:3;display:flex;align-items:center;gap:.7rem;font-family:var(--mono);font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--txt);opacity:0;animation:fade 1s 1.2s both}
+.h-scroll-bar{width:36px;height:1px;background:var(--brd2);position:relative;overflow:hidden}
+.h-scroll-bar::after{content:'';position:absolute;inset:0;background:var(--acc);animation:slidebar 2s ease-in-out infinite}
+@keyframes slidebar{0%{transform:translateX(-100%)}50%{transform:translateX(0)}100%{transform:translateX(100%)}}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+
+/* SECTIONS */
+.sec{padding:7rem 0}
 .wrap{max-width:1200px;margin:0 auto;padding:0 3rem}
 .s-tag{font-family:var(--mono);font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--acc);margin-bottom:.9rem;display:flex;align-items:center;gap:.65rem}
-.s-tag::before{content:'';width:18px;height:1px;background:var(--acc)}
-.s-title{font-family:var(--disp);font-size:clamp(1.8rem,4vw,3rem);font-weight:700;color:var(--head);margin-bottom:3rem}
+.s-tag::before{content:'';width:18px;height:1px;background:rgba(106,172,238,.4)}
+.s-title{font-family:var(--disp);font-size:clamp(1.7rem,3.5vw,2.8rem);font-weight:700;color:var(--head);letter-spacing:-.02em;line-height:1.05;margin-bottom:1.4rem}
 
-/* NEW PROJECT CARD STYLES */
-.proj-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; margin-top: 2rem; }
-.pj-card { background: var(--surf); border: 1px solid var(--brd); display: grid; grid-template-columns: 1fr 340px; transition: border-color .3s; }
-.pj-card:hover { border-color: var(--brd2); }
-.pj-main { padding: 2.5rem; border-right: 1px solid var(--brd); }
-.pj-side { padding: 2.5rem; background: rgba(0,0,0,0.2); }
+/* TICKER */
+.ticker{border-top:1px solid var(--brd);border-bottom:1px solid var(--brd);overflow:hidden;position:relative;background:var(--bg2)}
+.ticker::before,.ticker::after{content:'';position:absolute;top:0;bottom:0;width:90px;z-index:2;pointer-events:none}
+.ticker::before{left:0;background:linear-gradient(to right,var(--bg2),transparent)}
+.ticker::after{right:0;background:linear-gradient(to left,var(--bg2),transparent)}
+.ticker-row{display:flex;padding:.85rem 0;overflow:hidden}
+.ticker-track{display:flex;flex-shrink:0;animation:tickmove 32s linear infinite}
+.ticker-track:nth-child(2){animation-delay:-16s}
+@keyframes tickmove{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+.t-item{display:flex;align-items:center;gap:.5rem;padding:.3rem 1.1rem;border-right:1px solid var(--brd);font-family:var(--mono);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--txt);white-space:nowrap}
+.t-item i{color:rgba(106,172,238,.45);font-size:.6rem}
 
-.pj-badge { font-family: var(--mono); font-size: .55rem; background: rgba(106,172,238,0.1); color: var(--acc); padding: .2rem .6rem; border: 1px solid rgba(106,172,238,0.2); margin-bottom: 1rem; display: inline-block; }
-.pj-title { font-family: var(--disp); font-size: 1.8rem; font-weight: 700; color: var(--head); margin-bottom: 1rem; line-height: 1.2; }
-.pj-desc { font-family: var(--disp); font-weight: 300; font-size: .9rem; color: var(--txt2); margin-bottom: 1.5rem; }
+/* ABOUT */
+#about{background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:1fr 280px;gap:6rem;align-items:start}
+.about-text{font-family:var(--disp);font-weight:300;font-size:.9rem;line-height:2}
+.about-text p{margin-bottom:1.3rem;color:var(--txt)}.about-text p:last-child{margin:0}
+.about-text strong{color:var(--head);font-weight:500}.about-text em{color:var(--acc);font-style:normal}
+.info-tbl{list-style:none;margin-top:2.5rem;border-top:1px solid var(--brd)}
+.info-tbl li{display:grid;grid-template-columns:110px 1fr;padding:.6rem 0;border-bottom:1px solid var(--brd)}
+.info-tbl .k{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--acc)}
+.info-tbl .v{font-family:var(--disp);font-size:.83rem;color:var(--head);font-weight:400}
+.side-nums{display:flex;flex-direction:column;gap:.7rem}
+.sn{padding:1.3rem 1.4rem;background:var(--surf);border:1px solid var(--brd);transition:border-color .25s}
+.sn:hover{border-color:rgba(106,172,238,.3)}
+.sn-n{font-family:var(--disp);font-size:2.4rem;font-weight:800;color:var(--acc);line-height:1;margin-bottom:.28rem}
+.sn-l{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--txt)}
 
-.pj-spec-title { font-family: var(--mono); font-size: .6rem; text-transform: uppercase; color: var(--txt); letter-spacing: .1em; margin-bottom: 1rem; border-bottom: 1px solid var(--brd); padding-bottom: .5rem; }
-.pj-spec-grid { display: grid; gap: 0.8rem; }
-.pj-spec-item { display: flex; justify-content: space-between; font-size: .75rem; }
-.pj-spec-item .label { color: var(--txt); }
-.pj-spec-item .value { color: var(--acc); font-family: var(--mono); font-weight: 500; }
+/* SKILLS */
+#skills{background:var(--bg2)}
+.skill-cols{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem}
+.sg{margin-bottom:2.5rem}
+.sg-head{font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--txt);padding-bottom:.55rem;border-bottom:1px solid var(--brd);margin-bottom:1.1rem}
+.sk{display:flex;align-items:center;gap:1rem;padding:.45rem 0;border-bottom:1px solid rgba(24,36,58,.5)}
+.sk:last-child{border:none}
+.sk-name{font-family:var(--disp);font-size:.83rem;color:var(--txt2);flex:1;font-weight:400}
+.sk-bar{width:90px;height:2px;background:var(--brd);position:relative;overflow:hidden}
+.sk-fill{position:absolute;inset:0;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .9s cubic-bezier(.4,0,.2,1)}
+.sk.on .sk-fill{transform:scaleX(var(--w))}
+.sk-lv{font-family:var(--mono);font-size:.58rem;letter-spacing:.06em;color:var(--txt);min-width:52px;text-align:right}
 
-.pj-tools { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
-.tool-tag { font-family: var(--mono); font-size: .6rem; color: var(--txt2); padding: .2rem .5rem; background: var(--bg); border: 1px solid var(--brd); }
+/* PROJECTS */
+#projects{background:var(--bg)}
+.proj-wrap{border:1px solid var(--brd);margin-top:3rem}
+.pj-feat{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--brd);background:var(--surf);transition:background .2s}
+.pj-feat:hover{background:#0f1a28}
+.pj-feat-l{padding:2.4rem;border-right:1px solid var(--brd)}
+.pj-feat-r{padding:2.4rem}
+.pj-star{font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:.9rem}
+.pj-name{font-family:var(--disp);font-size:1.6rem;font-weight:700;color:var(--head);letter-spacing:-.02em;line-height:1.1;margin-bottom:1.1rem}
+.pj-desc{font-family:var(--disp);font-weight:300;font-size:.85rem;color:var(--txt);line-height:1.9;margin-bottom:1.4rem}
+.pj-pts{list-style:none;margin-bottom:1.8rem}
+.pj-pts li{font-family:var(--disp);font-weight:300;font-size:.82rem;color:var(--txt2);padding:.22rem 0;padding-left:1rem;position:relative;line-height:1.6}
+.pj-pts li::before{content:'—';position:absolute;left:0;color:rgba(106,172,238,.4);font-size:.7rem}
+.pj-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.5rem}
+.tag{font-family:var(--mono);font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;padding:.14rem .5rem;color:var(--txt);border:1px solid var(--brd)}
+.tag.hi{color:var(--acc);border-color:rgba(106,172,238,.25)}
+.pj-row{display:grid;grid-template-columns:160px 1fr auto;gap:2rem;align-items:center;padding:1.5rem 2.4rem;border-bottom:1px solid var(--brd);background:var(--bg);transition:background .2s}
+.pj-row:last-child{border:none}.pj-row:hover{background:var(--surf)}
+.pj-yr{font-family:var(--mono);font-size:.65rem;letter-spacing:.06em;color:var(--txt)}
+.pj-rname{font-family:var(--disp);font-size:.98rem;font-weight:600;color:var(--head);margin-bottom:.3rem}
+.pj-rdesc{font-family:var(--disp);font-weight:300;font-size:.8rem;color:var(--txt);line-height:1.7}
+.gh-link{display:flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.63rem;color:var(--txt);padding:.38rem .75rem;border:1px solid var(--brd);transition:all .2s;white-space:nowrap;flex-shrink:0}
+.gh-link:hover{color:var(--acc);border-color:rgba(106,172,238,.3)}
 
-.gh-btn { display: inline-flex; align-items: center; gap: .6rem; font-family: var(--mono); font-size: .65rem; color: var(--white); background: var(--brd2); padding: .6rem 1.2rem; margin-top: 2rem; transition: all .2s; }
-.gh-btn:hover { background: var(--acc); color: var(--bg); }
+/* CERTS */
+#certs{background:var(--bg2);padding:4rem 0}
+.cert-row{display:flex;gap:1px;border:1px solid var(--brd)}
+.cert-blk{flex:1;padding:1.6rem 1.8rem;background:var(--bg2);border-right:1px solid var(--brd);transition:background .2s}
+.cert-blk:last-child{border-right:none}.cert-blk:hover{background:var(--surf)}
+.cb-i{color:rgba(106,172,238,.45);font-size:.95rem;margin-bottom:.7rem}
+.cb-n{font-family:var(--disp);font-size:.95rem;font-weight:600;color:var(--head);margin-bottom:.25rem}
+.cb-m{font-family:var(--disp);font-size:.75rem;font-weight:300;color:var(--txt);line-height:1.6}
 
-/* SKILLS MODS */
-.skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-.skill-box { background: var(--bg2); border: 1px solid var(--brd); padding: 2rem; }
-.sb-title { font-family: var(--mono); font-size: .65rem; color: var(--acc); text-transform: uppercase; letter-spacing: .15em; margin-bottom: 1.5rem; display: flex; align-items: center; gap: .6rem; }
-.sb-list { list-style: none; }
-.sb-item { display: flex; justify-content: space-between; margin-bottom: .8rem; font-size: .85rem; color: var(--txt2); }
-.sb-item::after { content: ''; flex: 1; border-bottom: 1px dashed var(--brd); margin: 0 .8rem; position: relative; top: -4px; }
-.sb-level { color: var(--head); font-family: var(--mono); font-size: .75rem; }
+/* CONTACT */
+#contact{background:var(--bg)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+.ct-text{font-family:var(--disp);font-weight:300;font-size:.9rem;color:var(--txt);line-height:2;margin-bottom:2.2rem}
+.ct-text em{color:var(--acc);font-style:normal}.ct-text strong{color:var(--head);font-weight:500}
+.ct-links{list-style:none}
+.ct-links li{display:flex;align-items:center;gap:.9rem;padding:.75rem 0;border-bottom:1px solid var(--brd)}
+.ct-links li:last-child{border:none}
+.ct-ico{width:34px;height:34px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:1px solid var(--brd);color:var(--acc);font-size:.78rem;transition:all .2s}
+.ct-ico:hover{border-color:var(--acc);background:rgba(106,172,238,.06)}
+.ct-lbl{font-family:var(--mono);font-size:.57rem;letter-spacing:.12em;text-transform:uppercase;color:var(--txt);display:block;margin-bottom:.05rem}
+.ct-val{font-family:var(--disp);font-size:.83rem;color:var(--head);font-weight:400}
+.ct-val a{color:var(--txt2)}.ct-val a:hover{color:var(--acc)}
+.ct-card{background:var(--surf);border:1px solid var(--brd);padding:2.2rem;position:relative}
+.ct-card::before{content:'"';font-family:var(--disp);font-size:6rem;font-weight:800;color:rgba(106,172,238,.07);position:absolute;top:-.8rem;left:1.4rem;line-height:1}
+.ct-quote{font-family:var(--disp);font-size:1.15rem;font-weight:600;color:var(--head);line-height:1.55;margin-bottom:1.2rem}
+.ct-note{font-family:var(--disp);font-weight:300;font-size:.84rem;color:var(--txt);line-height:1.9;margin-bottom:2rem}
+.ct-note em{color:var(--acc);font-style:normal}
 
-/* REVEAL & OTHER */
-.rv{opacity:0;transform:translateY(20px);transition:all .8s cubic-bezier(0.2, 0.8, 0.2, 1)}
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--brd);padding:1.8rem 0}
+.ft{max-width:1200px;margin:0 auto;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.ft-l{font-family:var(--disp);font-size:.72rem;font-weight:300;color:var(--txt)}
+.ft-l em{color:var(--acc);font-style:normal;font-weight:500}
+.ft-r{display:flex;gap:.7rem}
+.ft-r a{width:32px;height:32px;border:1px solid var(--brd);display:flex;align-items:center;justify-content:center;color:var(--txt);font-size:.73rem;transition:all .2s}
+.ft-r a:hover{color:var(--acc);border-color:rgba(106,172,238,.3);background:var(--surf)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
 .rv.on{opacity:1;transform:none}
-@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
 
+/* RESPONSIVE */
 @media(max-width:960px){
   .hero-inner{grid-template-columns:1fr}.h-term{display:none}
-  .pj-card { grid-template-columns: 1fr; }
-  .pj-main, .pj-side { border: none; padding: 1.5rem; }
+  .about-grid{grid-template-columns:1fr}.skill-cols{grid-template-columns:1fr}
+  .pj-feat{grid-template-columns:1fr}.pj-feat-l{border-right:none;border-bottom:1px solid var(--brd)}
+  .contact-grid{grid-template-columns:1fr}.cert-row{flex-wrap:wrap}
+}
+@media(max-width:640px){
+  .wrap{padding:0 1.4rem}#nav{padding:0 1.4rem}.n-links{display:none}
+  .h-name{white-space:normal;font-size:clamp(2rem,9vw,3rem)}
+  .pj-row{grid-template-columns:1fr;gap:.8rem}.pj-yr{display:none}.gh-link{align-self:flex-start}
 }
 </style>
 </head>
 <body>
 
 <nav id="nav">
-  <div class="n-logo">TRAN TAN <span>HAI</span></div>
+  <div class="n-logo">Trần Tấn <span>Hải</span></div>
   <ul class="n-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#skills">Kỹ Năng</a></li>
-    <li><a href="#projects">Sản Phẩm</a></li>
-    <li><a href="#contact">Liên Hệ</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="https://github.com/HaiTran-bot" target="_blank" class="n-cta">
-    <i class="fab fa-github"></i> REPOSITORIES
+    <i class="fab fa-github"></i> GitHub
   </a>
 </nav>
 
 <section id="hero">
   <div class="hero-inner">
     <div>
-      <div class="h-eye"><span class="h-pulse"></span> SYSTEM VERIFICATION & DIGITAL DESIGN</div>
-      <h1 class="h-name">TÍN HIỆU &<br><span class="hl">XUNG NHỊP</span></h1>
+      <div class="h-eye"><span class="h-pulse"></span>Computer Engineering · HCMUT · Ho Chi Minh City</div>
+      <h1 class="h-name">TRẦN TẤN <span class="hl">HẢI</span></h1>
       <p class="h-role">
-        Sinh viên <strong>Kỹ thuật Máy tính</strong> tại <strong>ĐHBK TP.HCM (HCMUT)</strong>.<br>
-        Chuyên sâu về <strong>RTL Design, RISC-V Architecture</strong> và <strong>DFT Methodology</strong>.
+        <strong>RTL Design</strong> &nbsp;·&nbsp;
+        <strong>Computer Architecture</strong> &nbsp;·&nbsp;
+        <strong>Design-for-Test (DFT)</strong>
+      </p>
+      <p class="h-bio">
+        I build computing systems from the ground up —
+        designing <em>RISC-V processors</em> in Verilog,
+        optimizing <em>hardware accelerators</em>,
+        and mastering the hardware–software stack from gate-level logic to firmware.
       </p>
       <div class="h-btns">
-        <a href="#projects" class="btn-fill" style="background:var(--acc); color:var(--bg); padding:.8rem 1.5rem; font-weight:600; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase">
-          <i class="fas fa-microchip"></i> Khám phá Projects
-        </a>
-        <a href="https://github.com/HaiTran-bot" target="_blank" class="btn-line" style="margin-left:1rem; border:1px solid var(--brd2); padding:.8rem 1.5rem; font-size:.7rem">
-           MÃ NGUỒN GITHUB
-        </a>
+        <a href="#projects" class="btn-fill"><i class="fas fa-microchip"></i> View Projects</a>
+        <a href="https://github.com/HaiTran-bot" target="_blank" class="btn-line"><i class="fab fa-github"></i> GitHub</a>
+        <a href="mailto:haitantran1005@gmail.com" class="btn-line"><i class="fas fa-envelope"></i> Email</a>
       </div>
     </div>
-    
-    <div class="h-term rv">
+    <div class="h-term">
       <div class="h-term-bar">
         <div class="td td1"></div><div class="td td2"></div><div class="td td3"></div>
-        <span class="h-term-lbl">Synthesis — Vivado 2023.2</span>
+        <span class="h-term-lbl">rv32im_tb — iverilog</span>
       </div>
-      <div class="h-term-body" id="term-out">
+      <div class="h-term-body" id="term-out"></div>
+    </div>
+  </div>
+  <div class="h-scroll"><div class="h-scroll-bar"></div>Scroll to explore</div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-row">
+    <div class="ticker-track" id="tk1"></div>
+    <div class="ticker-track" id="tk2"></div>
+  </div>
+</div>
+
+<section id="about" class="sec">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="rv">
+        <div class="s-tag">About</div>
+        <h2 class="s-title">I think in<br>clock cycles.</h2>
+        <div class="about-text">
+          <p>My name is <strong>Trần Tấn Hải</strong> and I'm a Computer Engineering student at Ho Chi Minh City University of Technology (<em>HCMUT</em>). I'm drawn to the part of computing most people never see — the logic gates, the register files, and the micro-architectural timing.</p>
+          <p>My focus is <em>digital design and computer architecture</em>: implementing RISC-V CPUs from a blank Verilog file, understanding every hazard, and optimizing forwarding paths. I don't use black boxes — I build them.</p>
+          <p>Currently specializing in <strong>Design-for-Test (DFT)</strong> methodologies to ensure high reliability and testability in modern silicon designs.</p>
         </div>
+        <ul class="info-tbl rv d1">
+          <li><span class="k">University</span><span class="v">HCMUT — Ho Chi Minh City University of Technology</span></li>
+          <li><span class="k">Major</span><span class="v">Computer Engineering</span></li>
+          <li><span class="k">Focus</span><span class="v">RTL Design · Computer Architecture · DFT</span></li>
+          <li><span class="k">Email</span><span class="v"><a href="mailto:haitantran1005@gmail.com">haitantran1005@gmail.com</a></span></li>
+          <li><span class="k">Languages</span><span class="v">Vietnamese (native) · English (IELTS 7.0)</span></li>
+        </ul>
+      </div>
+      <div class="side-nums rv d2">
+        <div class="sn"><div class="sn-n">5</div><div class="sn-l">Pipeline Stages — RV32IM</div></div>
+        <div class="sn"><div class="sn-n">32-bit</div><div class="sn-l">RISC-V Architecture</div></div>
+        <div class="sn"><div class="sn-n">SHA-3</div><div class="sn-l">Cryptographic RTL Implementation</div></div>
+        <div class="sn"><div class="sn-n">10+</div><div class="sn-l">GitHub Repositories</div></div>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="skills" class="sec">
   <div class="wrap">
-    <div class="s-tag rv">Expertise</div>
-    <h2 class="s-title rv">Stack kỹ thuật & Công cụ.</h2>
-    <div class="skill-grid">
-      <div class="skill-box rv">
-        <div class="sb-title"><i class="fas fa-microchip"></i> Hardware Design</div>
-        <ul class="sb-list">
-          <li class="sb-item"><span>Verilog / SystemVerilog</span><span class="sb-level">Primary</span></li>
-          <li class="sb-item"><span>Computer Architecture</span><span class="sb-level">Advanced</span></li>
-          <li class="sb-item"><span>RISC-V ISA</span><span class="sb-level">Advanced</span></li>
-          <li class="sb-item"><span>DFT & Verification</span><span class="sb-level">Focusing</span></li>
-        </ul>
+    <div class="s-tag rv">Skills</div>
+    <h2 class="s-title rv">What I work with.</h2>
+    <div class="skill-cols">
+      <div>
+        <div class="sg rv">
+          <div class="sg-head">Hardware Description</div>
+          <div class="sk" style="--w:1"><span class="sk-name">Verilog / VHDL</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Primary</span></div>
+          <div class="sk" style="--w:.85"><span class="sk-name">Design-for-Test (DFT)</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Advanced</span></div>
+          <div class="sk" style="--w:.82"><span class="sk-name">RISC-V Assembly</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Advanced</span></div>
+        </div>
+        <div class="sg rv d1">
+          <div class="sg-head">Embedded / Firmware</div>
+          <div class="sk" style="--w:.95"><span class="sk-name">C / C++</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Primary</span></div>
+          <div class="sk" style="--w:.86"><span class="sk-name">STM32 — Bare-metal</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Advanced</span></div>
+          <div class="sk" style="--w:.7"><span class="sk-name">RTOS</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Proficient</span></div>
+        </div>
       </div>
-      <div class="skill-box rv" style="transition-delay:0.1s">
-        <div class="sb-title"><i class="fas fa-code"></i> Firmware & Software</div>
-        <ul class="sb-list">
-          <li class="sb-item"><span>C (Bare-metal)</span><span class="sb-level">Advanced</span></li>
-          <li class="sb-item"><span>STM32 Ecosystem</span><span class="sb-level">Advanced</span></li>
-          <li class="sb-item"><span>RTOS (FreeRTOS)</span><span class="sb-level">Proficient</span></li>
-          <li class="sb-item"><span>Python / Linux</span><span class="sb-level">Proficient</span></li>
-        </ul>
-      </div>
-      <div class="skill-box rv" style="transition-delay:0.2s">
-        <div class="sb-title"><i class="fas fa-tools"></i> EDA & CAD Tools</div>
-        <ul class="sb-list">
-          <li class="sb-item"><span>Xilinx Vivado / Vitis</span><span class="sb-level">Expert</span></li>
-          <li class="sb-item"><span>Questasim / Icarus</span><span class="sb-level">Advanced</span></li>
-          <li class="sb-item"><span>Altium Designer</span><span class="sb-level">Intermediate</span></li>
-          <li class="sb-item"><span>Git / LaTeX</span><span class="sb-level">Fluent</span></li>
-        </ul>
+      <div>
+        <div class="sg rv d2">
+          <div class="sg-head">Tools & Platforms</div>
+          <div class="sk" style="--w:.9"><span class="sk-name">Vivado / Vitis</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Advanced</span></div>
+          <div class="sk" style="--w:.8"><span class="sk-name">Questasim / ModelSim</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Advanced</span></div>
+          <div class="sk" style="--w:.78"><span class="sk-name">Git / Linux / Python</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Proficient</span></div>
+        </div>
+        <div class="sg rv d3">
+          <div class="sg-head">Protocols & Interfaces</div>
+          <div class="sk" style="--w:.86"><span class="sk-name">UART / I2C / SPI</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Advanced</span></div>
+          <div class="sk" style="--w:.75"><span class="sk-name">AMBA AXI / APB</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Proficient</span></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="projects" class="sec" style="background:var(--bg2)">
+<section id="projects" class="sec">
   <div class="wrap">
-    <div class="s-tag rv">Portfolio</div>
-    <h2 class="s-title rv">Dự án tiêu biểu.</h2>
-    
-    <div class="proj-grid">
-      <div class="pj-card rv">
-        <div class="pj-main">
-          <span class="pj-badge">MICROARCHITECTURE</span>
-          <h3 class="pj-title">5-Stage Pipelined<br>RISC-V CPU (RV32IM)</h3>
-          <p class="pj-desc">Thiết kế bộ vi xử lý 32-bit hiệu năng cao với đầy đủ Hazard Detection, Forwarding Unit và M-extension cho tính toán số học phần cứng.</p>
-          <div class="pj-tools">
-            <span class="tool-tag">Verilog</span>
-            <span class="tool-tag">RISC-V ISA</span>
-            <span class="tool-tag">Vivado</span>
+    <div class="s-tag rv">Projects</div>
+    <h2 class="s-title rv">Built with dedication.</h2>
+    <div class="proj-wrap rv">
+      <div class="pj-feat">
+        <div class="pj-feat-l">
+          <div class="pj-star">★ &nbsp;Featured</div>
+          <div class="pj-name">5-Stage Pipelined<br>RISC-V CPU (RV32IM)</div>
+          <p class="pj-desc">A fully pipelined 32-bit RISC-V processor implementing the RV32IM instruction set — every stage, hazard, and forwarding path designed and verified in Verilog.</p>
+          <div class="pj-tags">
+            <span class="tag hi">Verilog</span>
+            <span class="tag hi">C</span>
+            <span class="tag">Vivado</span>
+            <span class="tag">RISC-V ISA</span>
           </div>
-          <a href="https://github.com/HaiTran-bot/5-Stage-Pipelined-RV32IM" target="_blank" class="gh-btn">
-            <i class="fab fa-github"></i> XEM SOURCE CODE
-          </a>
         </div>
-        <div class="pj-side">
-          <div class="pj-spec-title">Technical Specs</div>
-          <div class="pj-spec-grid">
-            <div class="pj-spec-item"><span class="label">ISA</span><span class="value">RV32IM</span></div>
-            <div class="pj-spec-item"><span class="label">Pipeline</span><span class="value">5-Stage</span></div>
-            <div class="pj-spec-item"><span class="label">Fmax</span><span class="value">~87 MHz</span></div>
-            <div class="pj-spec-item"><span class="label">Logic</span><span class="value">Forwarding/Stall</span></div>
-          </div>
+        <div class="pj-feat-r">
+          <ul class="pj-pts">
+            <li>5-stage pipeline: IF → ID → EX → MEM → WB</li>
+            <li>Full data hazard detection with forwarding unit</li>
+            <li>M-extension: hardware multiply & divide</li>
+            <li>Fmax ≈ 87 MHz on Artix-7 FPGA target</li>
+          </ul>
+          <a href="https://github.com/HaiTran-bot/5-Stage-Pipelined-RV32IM" target="_blank" class="gh-link">
+            <i class="fab fa-github"></i> View on GitHub
+          </a>
         </div>
       </div>
-
-      <div class="pj-card rv">
-        <div class="pj-main">
-          <span class="pj-badge">CRYPTOGRAPHY</span>
-          <h3 class="pj-title">SHA3-256 RTL<br>Hardware Accelerator</h3>
-          <p class="pj-desc">Triển khai thuật toán Keccak-f[1600] mức RTL. Tối ưu hóa throughput cho các ứng dụng bảo mật và blockchain trên FPGA.</p>
-          <div class="pj-tools">
-            <span class="tool-tag">SystemVerilog</span>
-            <span class="tool-tag">Keccak</span>
-            <span class="tool-tag">FPGA</span>
-          </div>
-          <a href="https://github.com/HaiTran-bot/SHA-3-256" target="_blank" class="gh-btn">
-            <i class="fab fa-github"></i> XEM SOURCE CODE
-          </a>
+      
+      <div class="pj-row">
+        <div class="pj-yr">2026</div>
+        <div>
+          <div class="pj-rname">SHA-3-256 Accelerator</div>
+          <div class="pj-rdesc">High-throughput RTL implementation of the SHA3-256 (Keccak) cryptographic algorithm with optimized sponge construction.</div>
+          <div class="pj-tags"><span class="tag hi">Verilog</span><span class="tag hi">SystemVerilog</span><span class="tag">Cryptography</span></div>
         </div>
-        <div class="pj-side">
-          <div class="pj-spec-title">Performance Metric</div>
-          <div class="pj-spec-grid">
-            <div class="pj-spec-item"><span class="label">Hash</span><span class="value">256-bit</span></div>
-            <div class="pj-spec-item"><span class="label">Clock</span><span class="value">100+ MHz</span></div>
-            <div class="pj-spec-item"><span class="label">Interface</span><span class="value">Parallel 64-bit</span></div>
-            <div class="pj-spec-item"><span class="label">Model</span><span class="value">C-Reference</span></div>
-          </div>
-        </div>
+        <a href="https://github.com/HaiTran-bot/SHA-3-256" target="_blank" class="gh-link"><i class="fab fa-github"></i></a>
       </div>
 
-      <div class="pj-card rv">
-        <div class="pj-main">
-          <span class="pj-badge">CORE DESIGN</span>
-          <h3 class="pj-title">Single-Cycle<br>RISC-V CPU (RV32I)</h3>
-          <p class="pj-desc">Bộ xử lý RISC-V cơ bản thực thi mọi lệnh trong một chu kỳ máy. Dự án tập trung vào việc thiết kế Datapath và Control Unit chuẩn hóa theo ISA RV32I.</p>
-          <div class="pj-tools">
-            <span class="tool-tag">Verilog</span>
-            <span class="tool-tag">ISA Simulation</span>
-            <span class="tool-tag">GTKWave</span>
-          </div>
-          <a href="https://github.com/HaiTran-bot/Single-Cycle-RISCV-32bit" target="_blank" class="gh-btn">
-            <i class="fab fa-github"></i> XEM SOURCE CODE
-          </a>
+      <div class="pj-row">
+        <div class="pj-yr">2026</div>
+        <div>
+          <div class="pj-rname">Single-Cycle RISC-V CPU</div>
+          <div class="pj-rdesc">A fundamental 32-bit RISC-V processor implementing the RV32I base integer instruction set to validate datapath logic.</div>
+          <div class="pj-tags"><span class="tag hi">Verilog</span><span class="tag hi">ISA Validation</span><span class="tag">Digital Logic</span></div>
         </div>
-        <div class="pj-side">
-          <div class="pj-spec-title">Architecture Info</div>
-          <div class="pj-spec-grid">
-            <div class="pj-spec-item"><span class="label">CPI</span><span class="value">1.0</span></div>
-            <div class="pj-spec-item"><span class="label">ISA Support</span><span class="value">RV32I Base</span></div>
-            <div class="pj-spec-item"><span class="label">Memory</span><span class="value">Synchronous</span></div>
-            <div class="pj-spec-item"><span class="label">Verification</span><span class="value">Verilator / TB</span></div>
-          </div>
-        </div>
+        <a href="https://github.com/HaiTran-bot/Single-Cycle-RISCV-32bit" target="_blank" class="gh-link"><i class="fab fa-github"></i></a>
       </div>
 
-      <div class="pj-card rv">
-        <div class="pj-main">
-          <span class="pj-badge">PERIPHERAL RTL</span>
-          <h3 class="pj-title">UART Communication<br>Controller</h3>
-          <p class="pj-desc">Thiết kế module giao tiếp nối tiếp UART tùy chỉnh với Baud Rate Generator linh hoạt, hỗ trợ cơ chế Over-sampling để đảm bảo độ chính xác dữ liệu.</p>
-          <div class="pj-tools">
-            <span class="tool-tag">Verilog</span>
-            <span class="tool-tag">FSM Design</span>
-            <span class="tool-tag">Digital Logic</span>
-          </div>
-          <a href="https://github.com/HaiTran-bot/UART_Communication" target="_blank" class="gh-btn">
-            <i class="fab fa-github"></i> XEM SOURCE CODE
-          </a>
+      <div class="pj-row">
+        <div class="pj-yr">2026</div>
+        <div>
+          <div class="pj-rname">UART Communication Controller</div>
+          <div class="pj-rdesc">Robust UART module in Verilog with configurable baud rate and oversampling for reliable serial data transfer.</div>
+          <div class="pj-tags"><span class="tag hi">Verilog</span><span class="tag hi">FSM</span><span class="tag">Protocols</span></div>
         </div>
-        <div class="pj-side">
-          <div class="pj-spec-title">Hardware Specs</div>
-          <div class="pj-spec-grid">
-            <div class="pj-spec-item"><span class="label">Protocol</span><span class="value">8-N-1 Standard</span></div>
-            <div class="pj-spec-item"><span class="label">Sampling</span><span class="value">16x Baud Rate</span></div>
-            <div class="pj-spec-item"><span class="label">Baud Rate</span><span class="value">Configurable</span></div>
-            <div class="pj-spec-item"><span class="label">Logic Type</span><span class="value">FSM-Driven</span></div>
-          </div>
-        </div>
+        <a href="https://github.com/HaiTran-bot/UART_Communication" target="_blank" class="gh-link"><i class="fab fa-github"></i></a>
       </div>
     </div>
+    <div style="margin-top:1.8rem" class="rv">
+      <a href="https://github.com/HaiTran-bot" target="_blank" class="btn-line">
+        <i class="fab fa-github"></i> All repositories on GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="certs">
+  <div class="wrap">
+    <div class="cert-row rv">
+      <div class="cert-blk">
+        <div class="cb-i"><i class="fas fa-language"></i></div>
+        <div class="cb-n">IELTS Academic 7.0</div>
+        <div class="cb-m">International English Language Testing System</div>
+      </div>
+      <div class="cert-blk">
+        <div class="cb-i"><i class="fas fa-microchip"></i></div>
+        <div class="cb-n">DFT Specialization</div>
+        <div class="cb-m">Focus on Scan, BIST, and ATPG methodologies</div>
+      </div>
+      <div class="cert-blk">
+        <div class="cb-i"><i class="fas fa-drafting-compass"></i></div>
+        <div class="cb-n">Altium Basic Certificate</div>
+        <div class="cb-m">PCB Design · Altium Designer Program</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="contact" class="sec">
-  <div class="wrap" style="text-align: center;">
-    <div class="s-tag rv" style="justify-content: center;">Contact</div>
-    <h2 class="s-title rv">Sẵn sàng cho các thách thức mới.</h2>
-    <p style="max-width: 600px; margin: 0 auto 3rem; color: var(--txt2)">Tôi đang tìm kiếm cơ hội thực tập và làm việc trong mảng <strong>IC Design, RTL & DFT</strong>. Nếu bạn quan tâm đến các dự án của tôi, hãy kết nối nhé!</p>
-    <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap">
-      <a href="mailto:haitantran1005@gmail.com" class="ct-val"><i class="fas fa-envelope"></i> Email</a>
-      <a href="https://www.linkedin.com/in/trantanhai/" target="_blank" class="ct-val"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      <a href="https://github.com/HaiTran-bot" target="_blank" class="ct-val"><i class="fab fa-github"></i> GitHub</a>
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="rv">
+        <div class="s-tag">Contact</div>
+        <h2 class="s-title">Let's talk<br>hardware.</h2>
+        <p class="ct-text">I'm looking for <em>internship opportunities</em> in RTL design, DFT, or computer architecture. Let's discuss <strong>how hardware actually works</strong>.</p>
+        <ul class="ct-links">
+          <li>
+            <div class="ct-ico"><i class="fas fa-envelope"></i></div>
+            <div><span class="ct-lbl">Email</span><div class="ct-val"><a href="mailto:haitantran1005@gmail.com">haitantran1005@gmail.com</a></div></div>
+          </li>
+          <li>
+            <div class="ct-ico"><i class="fab fa-github"></i></div>
+            <div><span class="ct-lbl">GitHub</span><div class="ct-val"><a href="https://github.com/HaiTran-bot" target="_blank">github.com/HaiTran-bot</a></div></div>
+          </li>
+          <li>
+            <div class="ct-ico"><i class="fab fa-linkedin-in"></i></div>
+            <div><span class="ct-lbl">LinkedIn</span><div class="ct-val"><a href="https://www.linkedin.com/in/trantanhai/" target="_blank">linkedin.com/in/trantanhai</a></div></div>
+          </li>
+        </ul>
+      </div>
+      <div class="rv d2">
+        <div class="ct-card">
+          <p class="ct-quote">"Talk is cheap. Show me the code."</p>
+          <p class="ct-note">I believe the best way to learn hardware is to build it — from a blank Verilog file to a working processor. Every project here was written from scratch.</p>
+          <a href="mailto:haitantran1005@gmail.com" class="btn-fill">
+            <i class="fas fa-paper-plane"></i> Send a message
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<footer style="padding: 4rem 0; border-top: 1px solid var(--brd); background: var(--bg2)">
-  <div class="wrap" style="display: flex; justify-content: space-between; align-items: center">
-    <div style="font-size: .7rem; color: var(--txt)">© 2026 TRAN TAN HAI. Designed for Silicon.</div>
-    <div style="font-family: var(--mono); font-size: .6rem; color: var(--acc)">STATUS: OPEN FOR INTERNSHIP</div>
+<footer>
+  <div class="ft">
+    <div class="ft-l"><em>Trần Tấn Hải</em> &nbsp;·&nbsp; Computer Engineering, HCMUT &nbsp;·&nbsp; 2026</div>
+    <div class="ft-r">
+      <a href="mailto:haitantran1005@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/HaiTran-bot" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/trantanhai/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
   </div>
 </footer>
 
 <script>
-/* Terminal Simulation - Tối ưu lại nội dung cho chuyên nghiệp hơn */
+/* Terminal Simulation */
 (function(){
   const out = document.getElementById('term-out');
   if (!out) return;
   const lines = [
-    {t:'p', v:'vivado -mode batch -source build.tcl'},
-    {t:'g', v:'[Common 17-78] Attempting to get a license: Implementation'},
-    {t:'g', v:'[Common 17-83] Release 2023.2. License granted.'},
-    {t:'d', v:'Reading Verilog source files...'},
-    {t:'d', v:'Analyzing module <rv32im_top>...'},
-    {t:'b', v:'[Synth 8-6157] Generating RTL for Pipelined_Processor...'},
+    {t:'p', v:'iverilog -o rv32im rv32im_tb.v rv32im.v'},
+    {t:'g', v:'Elaborating top module...'},
+    {t:'g', v:'Linking 47 modules...'},
+    {t:'b', v:'[SIM] Resetting pipeline...'},
     {t:'sp'},
-    {t:'g', v:'Finished Synthesis. Timing: MET'},
-    {t:'g', v:'Worst Negative Slack (WNS): 1.452 ns'},
-    {t:'g', v:'Total On-Chip Power: 0.145 W'},
+    {t:'d', v:'Running test: alu_ops'},
+    {t:'g', v:'  PASS  (128/128 vectors)'},
+    {t:'d', v:'Running test: branch_hazards'},
+    {t:'g', v:'  PASS  (64/64 vectors)'},
+    {t:'d', v:'Running test: load_use_stall'},
+    {t:'g', v:'  PASS  (32/32 vectors)'},
     {t:'sp'},
-    {t:'p', v:'./simulate_tb --vcd=wave.vcd'},
-    {t:'b', v:'[SIM] Running RV32IM_Core_TB...'},
-    {t:'g', v:'[PASS] Instruction: ADD, SUB, XOR, SRL, SRA...'},
-    {t:'g', v:'[PASS] M-Extension: MUL, DIV, REM...'},
-    {t:'g', v:'[PASS] Data Hazard & Forwarding Tests.'},
-    {t:'sp'},
-    {t:'b', v:'System Status: Operational.'},
-    {t:'end', v:''},
+    {t:'g', v:'All tests passed.'},
+    {t:'p', v:'echo $SKILLS'},
+    {t:'b', v:'Verilog · DFT · RISC-V · AMBA'},
+    {t:'end'},
   ];
   let i = 0;
   function next() {
     if (i >= lines.length) return;
     const l = lines[i++];
     const d = document.createElement('div');
-    d.style.marginBottom = '4px';
-    if      (l.t==='p')   d.innerHTML = `<span style="color:var(--acc)">$</span><span style="color:var(--head)"> ${l.v}</span>`;
-    else if (l.t==='g')   d.innerHTML = `<span style="color:#4ade80">✓ ${l.v}</span>`;
-    else if (l.t==='b')   d.innerHTML = `<span style="color:#7eb8f7">ℹ ${l.v}</span>`;
-    else if (l.t==='d')   d.innerHTML = `<span style="color:var(--txt)">[INFO] ${l.v}</span>`;
+    d.className = 'tl';
+    if      (l.t==='p')   d.innerHTML = `<span class="p">$</span><span class="c"> ${l.v}</span>`;
+    else if (l.t==='g')   d.innerHTML = `<span class="g"> ${l.v}</span>`;
+    else if (l.t==='b')   d.innerHTML = `<span class="b"> ${l.v}</span>`;
+    else if (l.t==='d')   d.innerHTML = `<span class="d"> ${l.v}</span>`;
     else if (l.t==='sp')  d.innerHTML = '&nbsp;';
-    else if (l.t==='end') d.innerHTML = `<span style="color:var(--acc)">$</span> <span style="display:inline-block; width:8px; height:14px; background:var(--acc); vertical-align:middle; animation:blink 1s step-end infinite"></span>`;
+    else if (l.t==='end') d.innerHTML = `<span class="p">$</span><span class="c"> </span><span class="caret"></span>`;
     out.appendChild(d);
     out.scrollTop = out.scrollHeight;
-    setTimeout(next, l.t==='p' ? 400 : 80);
+    setTimeout(next, l.t==='p' ? 120 : 55 + Math.random()*55);
   }
-  setTimeout(next, 1000);
+  setTimeout(next, 700);
 })();
 
-/* Scroll reveal logic */
-const ob = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('on');
-    }
+/* Ticker Logic */
+(function(){
+  const items = [
+    {i:'fa-microchip',l:'Verilog'},{i:'fa-cpu',l:'RISC-V'},{i:'fa-vial',l:'DFT'},
+    {i:'fa-code',l:'C / C++'},{i:'fa-sitemap',l:'Pipelining'},{i:'fa-server',l:'Hazard Control'},
+    {i:'fa-terminal',l:'Bare-Metal'},{i:'fa-broadcast-tower',l:'UART · I2C · SPI'},
+    {i:'fa-linux',l:'Linux'},{i:'fa-git-alt',l:'Git'},{i:'fa-lock',l:'SHA-3'},
+  ];
+  ['tk1','tk2'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    items.forEach(({i,l}) => {
+      const d = document.createElement('div');
+      d.className = 't-item';
+      d.innerHTML = `<i class="fas ${i}"></i>${l}`;
+      el.appendChild(d);
+    });
   });
-}, {threshold: 0.1});
-document.querySelectorAll('.rv').forEach(el => ob.observe(el));
+})();
+
+/* Scroll Reveal */
+(function(){
+  const ob = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('on');
+      ob.unobserve(e.target);
+    });
+  }, {threshold: 0.06});
+  document.querySelectorAll('.rv').forEach(el => ob.observe(el));
+
+  const ob2 = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('on');
+      const f = e.target.querySelector('.sk-fill');
+      if (f) f.style.transform = `scaleX(${getComputedStyle(e.target).getPropertyValue('--w').trim()})`;
+      ob2.unobserve(e.target);
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.sk').forEach(el => ob2.observe(el));
+})();
+
+/* Navbar Toggle */
+(function(){
+  const nav = document.getElementById('nav');
+  let last = 0;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    nav.classList.toggle('hide', y > last && y > 80);
+    last = y;
+  }, {passive: true});
+})();
 </script>
-
-<style>
-@keyframes blink { 50% { opacity: 0; } }
-.ct-val { font-family: var(--mono); font-size: .8rem; color: var(--txt2); transition: color .3s; }
-.ct-val:hover { color: var(--acc); }
-.ct-val i { margin-right: .5rem; }
-</style>
-
 </body>
 </html>
