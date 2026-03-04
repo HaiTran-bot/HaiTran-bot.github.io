@@ -12,12 +12,12 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 :root{
-  --bg:#07090c; --bg2:#0a0d12; --surf:#0e1520;
-  --brd:#18243a; --brd2:#22334d;
-  --acc:#6aacee; --acc2:#a8cef5;
-  --txt:#6b8299; --txt2:#9ab4cc; --head:#d8eaf8; --white:#eef6ff;
-  --disp:'Be Vietnam Pro',sans-serif;
-  --mono:'IBM Plex Mono',monospace;
+  --bg:#07090c; --bg2:#0a0d12; --surf:#0e1520;
+  --brd:#18243a; --brd2:#22334d;
+  --acc:#6aacee; --acc2:#a8cef5;
+  --txt:#6b8299; --txt2:#9ab4cc; --head:#d8eaf8; --white:#eef6ff;
+  --disp:'Be Vietnam Pro',sans-serif;
+  --mono:'IBM Plex Mono',monospace;
 }
 body{background:var(--bg);color:var(--txt);font-family:var(--mono);font-size:.875rem;line-height:1.75;overflow-x:hidden}
 ::selection{background:var(--acc);color:#000}
@@ -47,6 +47,7 @@ a:hover{color:var(--white)}
 .h-pulse{width:6px;height:6px;border-radius:50%;background:var(--acc);box-shadow:0 0 8px var(--acc);animation:pulse 2.5s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
 
+/* name — Be Vietnam Pro has full Vietnamese glyph support */
 .h-name{font-family:var(--disp);font-size:clamp(2.5rem,5.5vw,5rem);font-weight:800;color:var(--white);line-height:1;letter-spacing:-.02em;margin-bottom:1.6rem;opacity:0;animation:up .7s .2s both;white-space:nowrap}
 .h-name .hl{color:transparent;-webkit-text-stroke:1.5px var(--acc)}
 
@@ -196,368 +197,379 @@ footer{background:var(--bg);border-top:1px solid var(--brd);padding:1.8rem 0}
 
 /* RESPONSIVE */
 @media(max-width:960px){
-  .hero-inner{grid-template-columns:1fr}.h-term{display:none}
-  .about-grid{grid-template-columns:1fr}.skill-cols{grid-template-columns:1fr}
-  .pj-feat{grid-template-columns:1fr}.pj-feat-l{border-right:none;border-bottom:1px solid var(--brd)}
-  .contact-grid{grid-template-columns:1fr}.cert-row{flex-wrap:wrap}
+  .hero-inner{grid-template-columns:1fr}.h-term{display:none}
+  .about-grid{grid-template-columns:1fr}.skill-cols{grid-template-columns:1fr}
+  .pj-feat{grid-template-columns:1fr}.pj-feat-l{border-right:none;border-bottom:1px solid var(--brd)}
+  .contact-grid{grid-template-columns:1fr}.cert-row{flex-wrap:wrap}
 }
 @media(max-width:640px){
-  .wrap{padding:0 1.4rem}#nav{padding:0 1.4rem}.n-links{display:none}
-  .h-name{white-space:normal;font-size:clamp(2rem,9vw,3rem)}
-  .pj-row{grid-template-columns:1fr;gap:.8rem}.pj-yr{display:none}.gh-link{align-self:flex-start}
+  .wrap{padding:0 1.4rem}#nav{padding:0 1.4rem}.n-links{display:none}
+  .h-name{white-space:normal;font-size:clamp(2rem,9vw,3rem)}
+  .pj-row{grid-template-columns:1fr;gap:.8rem}.pj-yr{display:none}.gh-link{align-self:flex-start}
 }
 </style>
 </head>
 <body>
 
 <nav id="nav">
-  <div class="n-logo">Trần Tấn <span>Hải</span></div>
-  <ul class="n-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="https://github.com/HaiTran-bot" target="_blank" class="n-cta">
-    <i class="fab fa-github"></i> GitHub
-  </a>
+  <div class="n-logo">Trần Tấn <span>Hải</span></div>
+  <ul class="n-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://github.com/HaiTran-bot" target="_blank" class="n-cta">
+    <i class="fab fa-github"></i> GitHub
+  </a>
 </nav>
 
 <section id="hero">
-  <div class="hero-inner">
-    <div>
-      <div class="h-eye"><span class="h-pulse"></span>Computer Engineering · HCMUT · Ho Chi Minh City</div>
-      <h1 class="h-name">TRẦN TẤN <span class="hl">HẢI</span></h1>
-      <p class="h-role">
-        <strong>RTL Design</strong> &nbsp;·&nbsp;
-        <strong>Computer Architecture</strong> &nbsp;·&nbsp;
-        <strong>Design-for-Test (DFT)</strong>
-      </p>
-      <p class="h-bio">
-        I build computing systems from the ground up —
-        designing <em>RISC-V processors</em> in Verilog,
-        optimizing <em>hardware accelerators</em>,
-        and mastering the hardware–software stack from gate-level logic to firmware.
-      </p>
-      <div class="h-btns">
-        <a href="#projects" class="btn-fill"><i class="fas fa-microchip"></i> View Projects</a>
-        <a href="https://github.com/HaiTran-bot" target="_blank" class="btn-line"><i class="fab fa-github"></i> GitHub</a>
-        <a href="mailto:haitantran1005@gmail.com" class="btn-line"><i class="fas fa-envelope"></i> Email</a>
-      </div>
-    </div>
-    <div class="h-term">
-      <div class="h-term-bar">
-        <div class="td td1"></div><div class="td td2"></div><div class="td td3"></div>
-        <span class="h-term-lbl">rv32im_tb — iverilog</span>
-      </div>
-      <div class="h-term-body" id="term-out"></div>
-    </div>
-  </div>
-  <div class="h-scroll"><div class="h-scroll-bar"></div>Scroll to explore</div>
+  <div class="hero-inner">
+    <div>
+      <div class="h-eye"><span class="h-pulse"></span>Computer Engineering · HCMUT · Ho Chi Minh City</div>
+      <h1 class="h-name">TRẦN TẤN <span class="hl">HẢI</span></h1>
+      <p class="h-role">
+        <strong>RTL Design</strong> &nbsp;·&nbsp;
+        <strong>Computer Architecture</strong> &nbsp;·&nbsp;
+        <strong>Embedded Systems</strong>
+      </p>
+      <p class="h-bio">
+        I build computing systems from the ground up —
+        designing <em>RISC-V processors</em> in Verilog,
+        writing <em>bare-metal firmware</em> on STM32,
+        and understanding every layer of the hardware–software stack.
+        From gate-level logic to operating systems.
+      </p>
+      <div class="h-btns">
+        <a href="#projects" class="btn-fill"><i class="fas fa-microchip"></i> View Projects</a>
+        <a href="https://github.com/HaiTran-bot" target="_blank" class="btn-line"><i class="fab fa-github"></i> GitHub</a>
+        <a href="mailto:haitantran1005@gmail.com" class="btn-line"><i class="fas fa-envelope"></i> Email</a>
+      </div>
+    </div>
+    <div class="h-term">
+      <div class="h-term-bar">
+        <div class="td td1"></div><div class="td td2"></div><div class="td td3"></div>
+        <span class="h-term-lbl">rv32im_tb — iverilog</span>
+      </div>
+      <div class="h-term-body" id="term-out"></div>
+    </div>
+  </div>
+  <div class="h-scroll"><div class="h-scroll-bar"></div>Scroll to explore</div>
 </section>
 
 <div class="ticker">
-  <div class="ticker-row">
-    <div class="ticker-track" id="tk1"></div>
-    <div class="ticker-track" id="tk2"></div>
-  </div>
+  <div class="ticker-row">
+    <div class="ticker-track" id="tk1"></div>
+    <div class="ticker-track" id="tk2"></div>
+  </div>
 </div>
 
 <section id="about" class="sec">
-  <div class="wrap">
-    <div class="about-grid">
-      <div class="rv">
-        <div class="s-tag">About</div>
-        <h2 class="s-title">I think in<br>clock cycles.</h2>
-        <div class="about-text">
-          <p>My name is <strong>Trần Tấn Hải</strong> and I'm a Computer Engineering student at Ho Chi Minh City University of Technology (<em>HCMUT</em>). I'm drawn to the part of computing most people never see — the logic gates, the register files, and the micro-architectural timing.</p>
-          <p>My focus is <em>digital design and computer architecture</em>: implementing RISC-V CPUs from a blank Verilog file, understanding every hazard, and optimizing forwarding paths. I don't use black boxes — I build them.</p>
-          <p>Currently specializing in <strong>Design-for-Test (DFT)</strong> methodologies to ensure high reliability and testability in modern silicon designs.</p>
-        </div>
-        <ul class="info-tbl rv d1">
-          <li><span class="k">University</span><span class="v">HCMUT — Ho Chi Minh City University of Technology</span></li>
-          <li><span class="k">Major</span><span class="v">Computer Engineering</span></li>
-          <li><span class="k">Focus</span><span class="v">RTL Design · Computer Architecture · DFT</span></li>
-          <li><span class="k">Email</span><span class="v"><a href="mailto:haitantran1005@gmail.com">haitantran1005@gmail.com</a></span></li>
-          <li><span class="k">Languages</span><span class="v">Vietnamese (native) · English (IELTS 7.0)</span></li>
-        </ul>
-      </div>
-      <div class="side-nums rv d2">
-        <div class="sn"><div class="sn-n">5</div><div class="sn-l">Pipeline Stages — RV32IM</div></div>
-        <div class="sn"><div class="sn-n">32-bit</div><div class="sn-l">RISC-V Architecture</div></div>
-        <div class="sn"><div class="sn-n">SHA-3</div><div class="sn-l">Cryptographic RTL Implementation</div></div>
-        <div class="sn"><div class="sn-n">10+</div><div class="sn-l">GitHub Repositories</div></div>
-      </div>
-    </div>
-  </div>
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="rv">
+        <div class="s-tag">About</div>
+        <h2 class="s-title">I think in<br>clock cycles.</h2>
+        <div class="about-text">
+          <p>My name is <strong>Trần Tấn Hải</strong> and I'm a Computer Engineering student at Ho Chi Minh City University of Technology (<em>HCMUT</em>). I'm drawn to the part of computing most people never see — the logic gates, the register files, the waveforms on an oscilloscope.</p>
+          <p>My focus is <em>digital design and computer architecture</em>: implementing RISC-V CPUs from a blank Verilog file, understanding every hazard, every forwarding path, every memory access pattern. I don't use black boxes — I build them.</p>
+          <p>On the embedded side, I work close to the metal with <em>STM32 microcontrollers</em> — bare-metal C, peripheral drivers, RTOS scheduling — because a firmware engineer should understand the hardware they're programming, not just the HAL.</p>
+        </div>
+        <ul class="info-tbl rv d1">
+          <li><span class="k">University</span><span class="v">HCMUT — Ho Chi Minh City University of Technology</span></li>
+          <li><span class="k">Major</span><span class="v">Computer Engineering</span></li>
+          <li><span class="k">Focus</span><span class="v">RTL Design · Computer Architecture · Embedded Systems</span></li>
+          <li><span class="k">Email</span><span class="v"><a href="mailto:haitantran1005@gmail.com">haitantran1005@gmail.com</a></span></li>
+          <li><span class="k">Languages</span><span class="v">Vietnamese (native) · English (IELTS 7.0)</span></li>
+        </ul>
+      </div>
+      <div class="side-nums rv d2">
+        <div class="sn"><div class="sn-n">5</div><div class="sn-l">Pipeline Stages — RV32IM</div></div>
+        <div class="sn"><div class="sn-n">32-bit</div><div class="sn-l">RISC-V Architecture</div></div>
+        <div class="sn"><div class="sn-n">SHA-3</div><div class="sn-l">Cryptographic RTL Implementation</div></div>
+        <div class="sn"><div class="sn-n">10+</div><div class="sn-l">GitHub Repositories</div></div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="skills" class="sec">
-  <div class="wrap">
-    <div class="s-tag rv">Skills</div>
-    <h2 class="s-title rv">What I work with.</h2>
-    <div class="skill-cols">
-      <div>
-        <div class="sg rv">
-          <div class="sg-head">Hardware Description</div>
-          <div class="sk" style="--w:1"><span class="sk-name">Verilog / VHDL</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Primary</span></div>
-          <div class="sk" style="--w:.85"><span class="sk-name">Design-for-Test (DFT)</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Advanced</span></div>
-          <div class="sk" style="--w:.82"><span class="sk-name">RISC-V Assembly</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Advanced</span></div>
-        </div>
-        <div class="sg rv d1">
-          <div class="sg-head">Embedded / Firmware</div>
-          <div class="sk" style="--w:.95"><span class="sk-name">C / C++</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Primary</span></div>
-          <div class="sk" style="--w:.86"><span class="sk-name">STM32 — Bare-metal</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Advanced</span></div>
-          <div class="sk" style="--w:.7"><span class="sk-name">RTOS</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Proficient</span></div>
-        </div>
-      </div>
-      <div>
-        <div class="sg rv d2">
-          <div class="sg-head">Tools & Platforms</div>
-          <div class="sk" style="--w:.9"><span class="sk-name">Vivado / Vitis</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Advanced</span></div>
-          <div class="sk" style="--w:.8"><span class="sk-name">Questasim / ModelSim</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Advanced</span></div>
-          <div class="sk" style="--w:.78"><span class="sk-name">Git / Linux / Python</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Proficient</span></div>
-        </div>
-        <div class="sg rv d3">
-          <div class="sg-head">Protocols & Interfaces</div>
-          <div class="sk" style="--w:.86"><span class="sk-name">UART / I2C / SPI</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Advanced</span></div>
-          <div class="sk" style="--w:.75"><span class="sk-name">AMBA AXI / APB</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Proficient</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="wrap">
+    <div class="s-tag rv">Skills</div>
+    <h2 class="s-title rv">What I work with.</h2>
+    <div class="skill-cols">
+      <div>
+        <div class="sg rv">
+          <div class="sg-head">Hardware Description</div>
+          <div class="sk" style="--w:1"><span class="sk-name">Verilog</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Primary</span></div>
+          <div class="sk" style="--w:.82"><span class="sk-name">RISC-V Assembly</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Advanced</span></div>
+        </div>
+        <div class="sg rv d1">
+          <div class="sg-head">Embedded / Firmware</div>
+          <div class="sk" style="--w:.95"><span class="sk-name">C</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Primary</span></div>
+          <div class="sk" style="--w:.82"><span class="sk-name">C++</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Advanced</span></div>
+          <div class="sk" style="--w:.86"><span class="sk-name">STM32 — Bare-metal</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Advanced</span></div>
+          <div class="sk" style="--w:.7"><span class="sk-name">RTOS</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Proficient</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="sg rv d2">
+          <div class="sg-head">Tools & Platforms</div>
+          <div class="sk" style="--w:.8"><span class="sk-name">Vivado / Vitis</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Advanced</span></div>
+          <div class="sk" style="--w:.84"><span class="sk-name">STM32CubeIDE</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Advanced</span></div>
+          <div class="sk" style="--w:.78"><span class="sk-name">Git / Linux</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Proficient</span></div>
+          <div class="sk" style="--w:.7"><span class="sk-name">Python</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Proficient</span></div>
+          <div class="sk" style="--w:.68"><span class="sk-name">LaTeX</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Proficient</span></div>
+        </div>
+        <div class="sg rv d3">
+          <div class="sg-head">Protocols & Interfaces</div>
+          <div class="sk" style="--w:.86"><span class="sk-name">UART / I2C / SPI</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Advanced</span></div>
+          <div class="sk" style="--w:.75"><span class="sk-name">ADC / PWM / DMA</span><div class="sk-bar"><div class="sk-fill"></div></div><span class="sk-lv">Proficient</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="projects" class="sec">
-  <div class="wrap">
-    <div class="s-tag rv">Projects</div>
-    <h2 class="s-title rv">Built with dedication.</h2>
-    <div class="proj-wrap rv">
-      <div class="pj-feat">
-        <div class="pj-feat-l">
-          <div class="pj-star">★ &nbsp;Featured</div>
-          <div class="pj-name">5-Stage Pipelined<br>RISC-V CPU (RV32IM)</div>
-          <p class="pj-desc">A fully pipelined 32-bit RISC-V processor implementing the RV32IM instruction set — every stage, hazard, and forwarding path designed and verified in Verilog.</p>
-          <div class="pj-tags">
-            <span class="tag hi">Verilog</span>
-            <span class="tag hi">C</span>
-            <span class="tag">Vivado</span>
-            <span class="tag">RISC-V ISA</span>
-          </div>
-        </div>
-        <div class="pj-feat-r">
-          <ul class="pj-pts">
-            <li>5-stage pipeline: IF → ID → EX → MEM → WB</li>
-            <li>Full data hazard detection with forwarding unit</li>
-            <li>M-extension: hardware multiply & divide</li>
-            <li>Fmax ≈ 87 MHz on Artix-7 FPGA target</li>
-          </ul>
-          <a href="https://github.com/HaiTran-bot/5-Stage-Pipelined-RV32IM" target="_blank" class="gh-link">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
-        </div>
-      </div>
-      
-      <div class="pj-row">
-        <div class="pj-yr">2026</div>
-        <div>
-          <div class="pj-rname">SHA-3-256 Accelerator</div>
-          <div class="pj-rdesc">High-throughput RTL implementation of the SHA3-256 (Keccak) cryptographic algorithm with optimized sponge construction.</div>
-          <div class="pj-tags"><span class="tag hi">Verilog</span><span class="tag hi">SystemVerilog</span><span class="tag">Cryptography</span></div>
-        </div>
-        <a href="https://github.com/HaiTran-bot/SHA-3-256" target="_blank" class="gh-link"><i class="fab fa-github"></i></a>
-      </div>
-
-      <div class="pj-row">
-        <div class="pj-yr">2026</div>
-        <div>
-          <div class="pj-rname">Single-Cycle RISC-V CPU</div>
-          <div class="pj-rdesc">A fundamental 32-bit RISC-V processor implementing the RV32I base integer instruction set to validate datapath logic.</div>
-          <div class="pj-tags"><span class="tag hi">Verilog</span><span class="tag hi">ISA Validation</span><span class="tag">Digital Logic</span></div>
-        </div>
-        <a href="https://github.com/HaiTran-bot/Single-Cycle-RISCV-32bit" target="_blank" class="gh-link"><i class="fab fa-github"></i></a>
-      </div>
-
-      <div class="pj-row">
-        <div class="pj-yr">2026</div>
-        <div>
-          <div class="pj-rname">UART Communication Controller</div>
-          <div class="pj-rdesc">Robust UART module in Verilog with configurable baud rate and oversampling for reliable serial data transfer.</div>
-          <div class="pj-tags"><span class="tag hi">Verilog</span><span class="tag hi">FSM</span><span class="tag">Protocols</span></div>
-        </div>
-        <a href="https://github.com/HaiTran-bot/UART_Communication" target="_blank" class="gh-link"><i class="fab fa-github"></i></a>
-      </div>
-    </div>
-    <div style="margin-top:1.8rem" class="rv">
-      <a href="https://github.com/HaiTran-bot" target="_blank" class="btn-line">
-        <i class="fab fa-github"></i> All repositories on GitHub
-      </a>
-    </div>
-  </div>
+  <div class="wrap">
+    <div class="s-tag rv">Projects</div>
+    <h2 class="s-title rv">Built with dedication.</h2>
+    <div class="proj-wrap rv">
+      <div class="pj-feat">
+        <div class="pj-feat-l">
+          <div class="pj-star">★ &nbsp;Featured</div>
+          <div class="pj-name">5-Stage Pipelined<br>RISC-V CPU (RV32IM)</div>
+          <p class="pj-desc">A fully pipelined 32-bit RISC-V processor implementing the RV32IM instruction set — every stage, every hazard, every forwarding path designed and verified by hand in Verilog.</p>
+          <div class="pj-tags">
+            <span class="tag hi">Verilog</span>
+            <span class="tag hi">C</span>
+            <span class="tag">Vivado</span>
+            <span class="tag">RISC-V ISA</span>
+            <span class="tag">Artix-7 FPGA</span>
+          </div>
+        </div>
+        <div class="pj-feat-r">
+          <ul class="pj-pts">
+            <li>5-stage pipeline: IF → ID → EX → MEM → WB</li>
+            <li>Full data hazard detection with forwarding unit</li>
+            <li>Load-use stall insertion and branch flush logic</li>
+            <li>M-extension: hardware multiply &amp; divide</li>
+            <li>Custom testbenches, Fmax ≈ 87 MHz on Artix-7</li>
+          </ul>
+          <a href="https://github.com/HaiTran-bot/5-Stage-Pipelined-RV32IM" target="_blank" class="gh-link">
+            <i class="fab fa-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+      <div class="pj-row">
+        <div class="pj-yr">2024</div>
+        <div>
+          <div class="pj-rname">SHA-3-256 — Keccak RTL</div>
+          <div class="pj-rdesc">Keccak-f[1600] sponge construction in RTL, with a C reference model for co-simulation and timing verification on FPGA.</div>
+          <div class="pj-tags"><span class="tag hi">Verilog</span><span class="tag hi">C</span><span class="tag">Cryptography</span><span class="tag">Co-simulation</span></div>
+        </div>
+        <a href="https://github.com/HaiTran-bot/SHA-3-256" target="_blank" class="gh-link"><i class="fab fa-github"></i></a>
+      </div>
+      <div class="pj-row">
+        <div class="pj-yr">2024–25</div>
+        <div>
+          <div class="pj-rname">STM32 Embedded Lab Series</div>
+          <div class="pj-rdesc">Progressive bare-metal firmware on STM32: GPIO, timers, UART, I2C, SPI, ADC/PWM, DMA, and RTOS task scheduling.</div>
+          <div class="pj-tags"><span class="tag hi">C</span><span class="tag hi">STM32</span><span class="tag">Bare-metal</span><span class="tag">RTOS</span><span class="tag">CubeIDE</span></div>
+        </div>
+        <a href="https://github.com/HaiTran-bot" target="_blank" class="gh-link"><i class="fab fa-github"></i></a>
+      </div>
+      <div class="pj-row">
+        <div class="pj-yr">2025</div>
+        <div>
+          <div class="pj-rname">OS Lab — Process &amp; Virtual Memory</div>
+          <div class="pj-rdesc">Operating systems coursework: process management, virtual memory, CPU scheduling (FCFS, RR, Priority), and IPC on Linux.</div>
+          <div class="pj-tags"><span class="tag hi">C</span><span class="tag hi">Shell</span><span class="tag">Linux</span><span class="tag">OS Internals</span></div>
+        </div>
+        <a href="https://github.com/HaiTran-bot/LAB-1-OS-EX-3.6" target="_blank" class="gh-link"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+    <div style="margin-top:1.8rem" class="rv">
+      <a href="https://github.com/HaiTran-bot" target="_blank" class="btn-line">
+        <i class="fab fa-github"></i> All repositories on GitHub
+      </a>
+    </div>
+  </div>
 </section>
 
 <section id="certs">
-  <div class="wrap">
-    <div class="cert-row rv">
-      <div class="cert-blk">
-        <div class="cb-i"><i class="fas fa-language"></i></div>
-        <div class="cb-n">IELTS Academic 7.0</div>
-        <div class="cb-m">International English Language Testing System</div>
-      </div>
-      <div class="cert-blk">
-        <div class="cb-i"><i class="fas fa-microchip"></i></div>
-        <div class="cb-n">DFT Specialization</div>
-        <div class="cb-m">Focus on Scan, BIST, and ATPG methodologies</div>
-      </div>
-      <div class="cert-blk">
-        <div class="cb-i"><i class="fas fa-drafting-compass"></i></div>
-        <div class="cb-n">Altium Basic Certificate</div>
-        <div class="cb-m">PCB Design · Altium Designer Program</div>
-      </div>
-    </div>
-  </div>
+  <div class="wrap">
+    <div class="cert-row rv">
+      <div class="cert-blk">
+        <div class="cb-i"><i class="fas fa-language"></i></div>
+        <div class="cb-n">IELTS Academic 7.0</div>
+        <div class="cb-m">International English Language Testing System</div>
+      </div>
+      <div class="cert-blk">
+        <div class="cb-i"><i class="fab fa-microsoft"></i></div>
+        <div class="cb-n">Microsoft Office Specialist</div>
+        <div class="cb-m">PowerPoint &amp; Excel · Microsoft Certified</div>
+      </div>
+      <div class="cert-blk">
+        <div class="cb-i"><i class="fas fa-drafting-compass"></i></div>
+        <div class="cb-n">Altium Basic Certificate</div>
+        <div class="cb-m">PCB Design · Altium Designer Certification Program</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="contact" class="sec">
-  <div class="wrap">
-    <div class="contact-grid">
-      <div class="rv">
-        <div class="s-tag">Contact</div>
-        <h2 class="s-title">Let's talk<br>hardware.</h2>
-        <p class="ct-text">I'm looking for <em>internship opportunities</em> in RTL design, DFT, or computer architecture. Let's discuss <strong>how hardware actually works</strong>.</p>
-        <ul class="ct-links">
-          <li>
-            <div class="ct-ico"><i class="fas fa-envelope"></i></div>
-            <div><span class="ct-lbl">Email</span><div class="ct-val"><a href="mailto:haitantran1005@gmail.com">haitantran1005@gmail.com</a></div></div>
-          </li>
-          <li>
-            <div class="ct-ico"><i class="fab fa-github"></i></div>
-            <div><span class="ct-lbl">GitHub</span><div class="ct-val"><a href="https://github.com/HaiTran-bot" target="_blank">github.com/HaiTran-bot</a></div></div>
-          </li>
-          <li>
-            <div class="ct-ico"><i class="fab fa-linkedin-in"></i></div>
-            <div><span class="ct-lbl">LinkedIn</span><div class="ct-val"><a href="https://www.linkedin.com/in/trantanhai/" target="_blank">linkedin.com/in/trantanhai</a></div></div>
-          </li>
-        </ul>
-      </div>
-      <div class="rv d2">
-        <div class="ct-card">
-          <p class="ct-quote">"Talk is cheap. Show me the code."</p>
-          <p class="ct-note">I believe the best way to learn hardware is to build it — from a blank Verilog file to a working processor. Every project here was written from scratch.</p>
-          <a href="mailto:haitantran1005@gmail.com" class="btn-fill">
-            <i class="fas fa-paper-plane"></i> Send a message
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="rv">
+        <div class="s-tag">Contact</div>
+        <h2 class="s-title">Let's talk<br>hardware.</h2>
+        <p class="ct-text">I'm looking for <em>internship opportunities</em> in RTL design, embedded firmware, or computer architecture. Open to research collaborations and conversations with anyone who thinks deeply about <strong>how hardware actually works</strong>.</p>
+        <ul class="ct-links">
+          <li>
+            <div class="ct-ico"><i class="fas fa-envelope"></i></div>
+            <div><span class="ct-lbl">Email</span><div class="ct-val"><a href="mailto:haitantran1005@gmail.com">haitantran1005@gmail.com</a></div></div>
+          </li>
+          <li>
+            <div class="ct-ico"><i class="fab fa-github"></i></div>
+            <div><span class="ct-lbl">GitHub</span><div class="ct-val"><a href="https://github.com/HaiTran-bot" target="_blank">github.com/HaiTran-bot</a></div></div>
+          </li>
+          <li>
+            <div class="ct-ico"><i class="fab fa-linkedin-in"></i></div>
+            <div><span class="ct-lbl">LinkedIn</span><div class="ct-val"><a href="https://www.linkedin.com/in/trantanhai/" target="_blank">linkedin.com/in/trantanhai</a></div></div>
+          </li>
+          <li>
+            <div class="ct-ico"><i class="fab fa-facebook-f"></i></div>
+            <div><span class="ct-lbl">Facebook</span><div class="ct-val"><a href="https://www.facebook.com/hai.tran.832571/" target="_blank">facebook.com/hai.tran.832571</a></div></div>
+          </li>
+        </ul>
+      </div>
+      <div class="rv d2">
+        <div class="ct-card">
+          <p class="ct-quote">"Talk is cheap. Show me the code."</p>
+          <p class="ct-note">I believe the best way to learn hardware is to build it — from a blank Verilog file to a working processor. Every project here was written from scratch, understood at every <em>clock edge</em>.</p>
+          <a href="mailto:haitantran1005@gmail.com" class="btn-fill">
+            <i class="fas fa-paper-plane"></i> Send a message
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
-  <div class="ft">
-    <div class="ft-l"><em>Trần Tấn Hải</em> &nbsp;·&nbsp; Computer Engineering, HCMUT &nbsp;·&nbsp; 2026</div>
-    <div class="ft-r">
-      <a href="mailto:haitantran1005@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-      <a href="https://github.com/HaiTran-bot" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/trantanhai/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-    </div>
-  </div>
+  <div class="ft">
+    <div class="ft-l"><em>Trần Tấn Hải</em> &nbsp;·&nbsp; Computer Engineering, HCMUT &nbsp;·&nbsp; 2025</div>
+    <div class="ft-r">
+      <a href="mailto:haitantran1005@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/HaiTran-bot" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/trantanhai/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://www.facebook.com/hai.tran.832571/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    </div>
+  </div>
 </footer>
 
 <script>
-/* Terminal Simulation */
+/* Terminal */
 (function(){
-  const out = document.getElementById('term-out');
-  if (!out) return;
-  const lines = [
-    {t:'p', v:'iverilog -o rv32im rv32im_tb.v rv32im.v'},
-    {t:'g', v:'Elaborating top module...'},
-    {t:'g', v:'Linking 47 modules...'},
-    {t:'b', v:'[SIM] Resetting pipeline...'},
-    {t:'sp'},
-    {t:'d', v:'Running test: alu_ops'},
-    {t:'g', v:'  PASS  (128/128 vectors)'},
-    {t:'d', v:'Running test: branch_hazards'},
-    {t:'g', v:'  PASS  (64/64 vectors)'},
-    {t:'d', v:'Running test: load_use_stall'},
-    {t:'g', v:'  PASS  (32/32 vectors)'},
-    {t:'sp'},
-    {t:'g', v:'All tests passed.'},
-    {t:'p', v:'echo $SKILLS'},
-    {t:'b', v:'Verilog · DFT · RISC-V · AMBA'},
-    {t:'end'},
-  ];
-  let i = 0;
-  function next() {
-    if (i >= lines.length) return;
-    const l = lines[i++];
-    const d = document.createElement('div');
-    d.className = 'tl';
-    if      (l.t==='p')   d.innerHTML = `<span class="p">$</span><span class="c"> ${l.v}</span>`;
-    else if (l.t==='g')   d.innerHTML = `<span class="g"> ${l.v}</span>`;
-    else if (l.t==='b')   d.innerHTML = `<span class="b"> ${l.v}</span>`;
-    else if (l.t==='d')   d.innerHTML = `<span class="d"> ${l.v}</span>`;
-    else if (l.t==='sp')  d.innerHTML = '&nbsp;';
-    else if (l.t==='end') d.innerHTML = `<span class="p">$</span><span class="c"> </span><span class="caret"></span>`;
-    out.appendChild(d);
-    out.scrollTop = out.scrollHeight;
-    setTimeout(next, l.t==='p' ? 120 : 55 + Math.random()*55);
-  }
-  setTimeout(next, 700);
+  const out = document.getElementById('term-out');
+  if (!out) return;
+  const lines = [
+    {t:'p', v:'iverilog -o rv32im rv32im_tb.v rv32im.v'},
+    {t:'g', v:'Elaborating top module...'},
+    {t:'g', v:'Linking 47 modules...'},
+    {t:'b', v:'[SIM] Resetting pipeline...'},
+    {t:'sp'},
+    {t:'d', v:'Running test: alu_ops'},
+    {t:'g', v:'  PASS  (128/128 vectors)'},
+    {t:'d', v:'Running test: branch_hazards'},
+    {t:'g', v:'  PASS  (64/64 vectors)'},
+    {t:'d', v:'Running test: load_use_stall'},
+    {t:'g', v:'  PASS  (32/32 vectors)'},
+    {t:'d', v:'Running test: m_extension'},
+    {t:'g', v:'  PASS  (256/256 vectors)'},
+    {t:'sp'},
+    {t:'g', v:'All tests passed.'},
+    {t:'p', v:'echo $SKILLS'},
+    {t:'b', v:'Verilog · C · C++ · RISC-V Asm'},
+    {t:'b', v:'STM32 · SHA-3 · Pipeline Design'},
+    {t:'end'},
+  ];
+  let i = 0;
+  function next() {
+    if (i >= lines.length) return;
+    const l = lines[i++];
+    const d = document.createElement('div');
+    d.className = 'tl';
+    if      (l.t==='p')   d.innerHTML = `<span class="p">$</span><span class="c"> ${l.v}</span>`;
+    else if (l.t==='g')   d.innerHTML = `<span class="g"> ${l.v}</span>`;
+    else if (l.t==='b')   d.innerHTML = `<span class="b"> ${l.v}</span>`;
+    else if (l.t==='d')   d.innerHTML = `<span class="d"> ${l.v}</span>`;
+    else if (l.t==='sp')  d.innerHTML = '&nbsp;';
+    else if (l.t==='end') d.innerHTML = `<span class="p">$</span><span class="c"> </span><span class="caret"></span>`;
+    out.appendChild(d);
+    out.scrollTop = out.scrollHeight;
+    setTimeout(next, l.t==='p' ? 120 : l.t==='sp' ? 45 : 55 + Math.random()*55);
+  }
+  setTimeout(next, 700);
 })();
 
-/* Ticker Logic */
+/* Ticker */
 (function(){
-  const items = [
-    {i:'fa-microchip',l:'Verilog'},{i:'fa-cpu',l:'RISC-V'},{i:'fa-vial',l:'DFT'},
-    {i:'fa-code',l:'C / C++'},{i:'fa-sitemap',l:'Pipelining'},{i:'fa-server',l:'Hazard Control'},
-    {i:'fa-terminal',l:'Bare-Metal'},{i:'fa-broadcast-tower',l:'UART · I2C · SPI'},
-    {i:'fa-linux',l:'Linux'},{i:'fa-git-alt',l:'Git'},{i:'fa-lock',l:'SHA-3'},
-  ];
-  ['tk1','tk2'].forEach(id => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    items.forEach(({i,l}) => {
-      const d = document.createElement('div');
-      d.className = 't-item';
-      d.innerHTML = `<i class="fas ${i}"></i>${l}`;
-      el.appendChild(d);
-    });
-  });
+  const items = [
+    {i:'fa-microchip',l:'Verilog'},{i:'fa-cpu',l:'RISC-V'},{i:'fa-code',l:'C / C++'},
+    {i:'fa-plug',l:'STM32'},{i:'fa-sitemap',l:'Pipelining'},{i:'fa-server',l:'Hazard Control'},
+    {i:'fa-terminal',l:'Bare-Metal'},{i:'fa-broadcast-tower',l:'UART · I2C · SPI'},
+    {i:'fa-drafting-compass',l:'Altium'},{i:'fa-linux',l:'Linux'},{i:'fa-git-alt',l:'Git'},
+    {i:'fa-file-alt',l:'LaTeX'},{i:'fa-lock',l:'SHA-3'},{i:'fa-layer-group',l:'Memory Hierarchy'},
+  ];
+  ['tk1','tk2'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    items.forEach(({i,l}) => {
+      const d = document.createElement('div');
+      d.className = 't-item';
+      d.innerHTML = `<i class="fas ${i}"></i>${l}`;
+      el.appendChild(d);
+    });
+  });
 })();
 
-/* Scroll Reveal */
+/* Scroll reveal */
 (function(){
-  const ob = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      e.target.classList.add('on');
-      ob.unobserve(e.target);
-    });
-  }, {threshold: 0.06});
-  document.querySelectorAll('.rv').forEach(el => ob.observe(el));
+  const ob = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('on');
+      ob.unobserve(e.target);
+    });
+  }, {threshold: 0.06});
+  document.querySelectorAll('.rv').forEach(el => ob.observe(el));
 
-  const ob2 = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      e.target.classList.add('on');
-      const f = e.target.querySelector('.sk-fill');
-      if (f) f.style.transform = `scaleX(${getComputedStyle(e.target).getPropertyValue('--w').trim()})`;
-      ob2.unobserve(e.target);
-    });
-  }, {threshold: 0.1});
-  document.querySelectorAll('.sk').forEach(el => ob2.observe(el));
+  const ob2 = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('on');
+      const f = e.target.querySelector('.sk-fill');
+      if (f) f.style.transform = `scaleX(${getComputedStyle(e.target).getPropertyValue('--w').trim()})`;
+      ob2.unobserve(e.target);
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.sk').forEach(el => ob2.observe(el));
 })();
 
-/* Navbar Toggle */
+/* Nav hide */
 (function(){
-  const nav = document.getElementById('nav');
-  let last = 0;
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    nav.classList.toggle('hide', y > last && y > 80);
-    last = y;
-  }, {passive: true});
+  const nav = document.getElementById('nav');
+  let last = 0;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    nav.classList.toggle('hide', y > last && y > 80);
+    last = y;
+  }, {passive: true});
 })();
 </script>
 </body>
