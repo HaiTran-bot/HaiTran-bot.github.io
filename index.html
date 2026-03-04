@@ -205,7 +205,6 @@ a:hover{color:var(--white)}
             <span class="tool-tag">Verilog</span>
             <span class="tool-tag">RISC-V ISA</span>
             <span class="tool-tag">Vivado</span>
-            <span class="tool-tag">Icarus Verilog</span>
           </div>
           <a href="https://github.com/HaiTran-bot/5-Stage-Pipelined-RV32IM" target="_blank" class="gh-btn">
             <i class="fab fa-github"></i> XEM SOURCE CODE
@@ -215,10 +214,9 @@ a:hover{color:var(--white)}
           <div class="pj-spec-title">Technical Specs</div>
           <div class="pj-spec-grid">
             <div class="pj-spec-item"><span class="label">ISA</span><span class="value">RV32IM</span></div>
-            <div class="pj-spec-item"><span class="label">Pipeline Stages</span><span class="value">5 (IF/ID/EX/MEM/WB)</span></div>
-            <div class="pj-spec-item"><span class="label">Fmax (Artix-7)</span><span class="value">87.5 MHz</span></div>
-            <div class="pj-spec-item"><span class="label">Hazard Control</span><span class="value">Bypassing & Stall</span></div>
-            <div class="pj-spec-item"><span class="label">Verification</span><span class="value">Self-checking TB</span></div>
+            <div class="pj-spec-item"><span class="label">Pipeline</span><span class="value">5-Stage</span></div>
+            <div class="pj-spec-item"><span class="label">Fmax</span><span class="value">~87 MHz</span></div>
+            <div class="pj-spec-item"><span class="label">Logic</span><span class="value">Forwarding/Stall</span></div>
           </div>
         </div>
       </div>
@@ -231,7 +229,6 @@ a:hover{color:var(--white)}
           <div class="pj-tools">
             <span class="tool-tag">SystemVerilog</span>
             <span class="tool-tag">Keccak</span>
-            <span class="tool-tag">Co-Simulation</span>
             <span class="tool-tag">FPGA</span>
           </div>
           <a href="https://github.com/HaiTran-bot/SHA-3-256" target="_blank" class="gh-btn">
@@ -241,16 +238,64 @@ a:hover{color:var(--white)}
         <div class="pj-side">
           <div class="pj-spec-title">Performance Metric</div>
           <div class="pj-spec-grid">
-            <div class="pj-spec-item"><span class="label">Hash Width</span><span class="value">256-bit</span></div>
-            <div class="pj-spec-item"><span class="label">Architecture</span><span class="value">Sponge Construction</span></div>
-            <div class="pj-spec-item"><span class="label">Core Clock</span><span class="value">100+ MHz</span></div>
-            <div class="pj-spec-item"><span class="label">Input Interface</span><span class="value">Parallel 64-bit</span></div>
-            <div class="pj-spec-item"><span class="label">Modeling</span><span class="value">C-Reference Match</span></div>
+            <div class="pj-spec-item"><span class="label">Hash</span><span class="value">256-bit</span></div>
+            <div class="pj-spec-item"><span class="label">Clock</span><span class="value">100+ MHz</span></div>
+            <div class="pj-spec-item"><span class="label">Interface</span><span class="value">Parallel 64-bit</span></div>
+            <div class="pj-spec-item"><span class="label">Model</span><span class="value">C-Reference</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pj-card rv">
+        <div class="pj-main">
+          <span class="pj-badge">CORE DESIGN</span>
+          <h3 class="pj-title">Single-Cycle<br>RISC-V CPU (RV32I)</h3>
+          <p class="pj-desc">Bộ xử lý RISC-V cơ bản thực thi mọi lệnh trong một chu kỳ máy. Dự án tập trung vào việc thiết kế Datapath và Control Unit chuẩn hóa theo ISA RV32I.</p>
+          <div class="pj-tools">
+            <span class="tool-tag">Verilog</span>
+            <span class="tool-tag">ISA Simulation</span>
+            <span class="tool-tag">GTKWave</span>
+          </div>
+          <a href="https://github.com/HaiTran-bot/Single-Cycle-RISCV-32bit" target="_blank" class="gh-btn">
+            <i class="fab fa-github"></i> XEM SOURCE CODE
+          </a>
+        </div>
+        <div class="pj-side">
+          <div class="pj-spec-title">Architecture Info</div>
+          <div class="pj-spec-grid">
+            <div class="pj-spec-item"><span class="label">CPI</span><span class="value">1.0</span></div>
+            <div class="pj-spec-item"><span class="label">ISA Support</span><span class="value">RV32I Base</span></div>
+            <div class="pj-spec-item"><span class="label">Memory</span><span class="value">Synchronous</span></div>
+            <div class="pj-spec-item"><span class="label">Verification</span><span class="value">Verilator / TB</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pj-card rv">
+        <div class="pj-main">
+          <span class="pj-badge">PERIPHERAL RTL</span>
+          <h3 class="pj-title">UART Communication<br>Controller</h3>
+          <p class="pj-desc">Thiết kế module giao tiếp nối tiếp UART tùy chỉnh với Baud Rate Generator linh hoạt, hỗ trợ cơ chế Over-sampling để đảm bảo độ chính xác dữ liệu.</p>
+          <div class="pj-tools">
+            <span class="tool-tag">Verilog</span>
+            <span class="tool-tag">FSM Design</span>
+            <span class="tool-tag">Digital Logic</span>
+          </div>
+          <a href="https://github.com/HaiTran-bot/UART_Communication" target="_blank" class="gh-btn">
+            <i class="fab fa-github"></i> XEM SOURCE CODE
+          </a>
+        </div>
+        <div class="pj-side">
+          <div class="pj-spec-title">Hardware Specs</div>
+          <div class="pj-spec-grid">
+            <div class="pj-spec-item"><span class="label">Protocol</span><span class="value">8-N-1 Standard</span></div>
+            <div class="pj-spec-item"><span class="label">Sampling</span><span class="value">16x Baud Rate</span></div>
+            <div class="pj-spec-item"><span class="label">Baud Rate</span><span class="value">Configurable</span></div>
+            <div class="pj-spec-item"><span class="label">Logic Type</span><span class="value">FSM-Driven</span></div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 </section>
 
 <section id="contact" class="sec">
